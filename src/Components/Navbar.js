@@ -1,34 +1,35 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link ,useLocation } from 'react-router-dom';
 
 import '../css/Navbar.css';
 import { getCartItems } from '../action';
 
 
 const Navbar = (props) => {
+    const location =useLocation().pathname;
     useEffect(() => {
         props.getCartItems();
     }, [])
     return (
         <div className="Navbar">
             <div className="ui secondary pointing menu">
-                <Link to="/" className="item" >
+                <Link to="/" className="item" style={{backgroundColor: location=="/"?"white":"unset"}}>
                     Home
                 </Link>
-                <Link to="/motherboard" className="item">
+                <Link to="/motherboard" className="item" style={{backgroundColor: location=="/motherboard"?"white":"unset"}} >
                     Motherboard
                 </Link>
-                <Link to="/memory" className="item">
+                <Link to="/memory" className="item" style={{backgroundColor: location=="/memory"?"white":"unset"}}>
                     Memory
                 </Link>
-                <Link to="/processor" className="item">
+                <Link to="/processor" className="item" style={{backgroundColor: location=="/processor"?"white":"unset"}}>
                     Processor
                 </Link>
-                <Link to="/graphics-card" className="item">
+                <Link to="/graphics-card" className="item" style={{backgroundColor: location=="/graphics-card"?"white":"unset"}}>
                     Graphics Card
                 </Link>
-                <Link to="/add" className="item">
+                <Link to="/add" className="item" style={{backgroundColor: location=="/add"?"white":"unset"}}>
                     Add Item
                 </Link>
                 <div className="right menu temp">
